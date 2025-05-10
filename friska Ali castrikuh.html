@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Cinta untuk Friska Ali</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      font-family: 'Georgia', serif;
+      color: #4b2e2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .surat-container {
+      background-color: #fff8f0;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 600px;
+      width: 90%;
+      font-size: 18px;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .judul {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #b14f4f;
+    }
+
+    .ketikan {
+      white-space: pre-wrap;
+      min-height: 300px;
+    }
+
+    .tanda-tangan {
+      text-align: right;
+      margin-top: 30px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="surat-container">
+    <div class="judul">Surat Cinta untuk Friska Ali</div>
+    <div class="ketikan" id="ketikan"></div>
+    <div class="tanda-tangan">- Dari Aku yang Selalu Menjagamu</div>
+  </div>
+
+  <script>
+    const isiSurat = [
+      "Untuk Friska Ali yang selalu ada di hatiku,\n",
+      "\nSejak awal aku mengenalmu, aku tahu bahwa kamu bukan orang biasa.",
+      "Kamu hadir membawa kedamaian yang belum pernah aku rasakan sebelumnya.",
+      "Setiap senyummu, setiap ucapanmu, selalu punya tempat di pikiranku.\n",
+      "\nFriska, cintaku padamu bukan hanya sekadar rasa suka.",
+      "Ini tentang ketulusan, kesetiaan, dan kesabaran yang aku tanamkan setiap hari untuk kita.",
+      "Aku akan tetap ada, bahkan ketika semuanya terasa tidak mudah.\n",
+      "\nAku tahu kamu pernah terluka, dan itu membuatmu kuat.",
+      "Tapi sekarang, izinkan aku jadi rumah yang aman untukmu.",
+      "Tempat di mana kamu bisa berhenti berlari dan mulai percaya lagi.\n",
+      "\nAku tidak sempurna, tapi hatiku tulus mencintaimu apa adanya.",
+      "Bersamamu, aku ingin membangun cerita yang panjang dan penuh makna.\n",
+      "\nTerima kasih sudah hadir dalam hidupku, Friska Ali.",
+      "Kamu layak dicintai sepenuh hati, dan aku siap untuk mencintaimu dengan sabar, setia, dan penuh kasih.\n"
+    ];
+
+    const ketikan = document.getElementById("ketikan");
+    let indexKalimat = 0;
+    let indexHuruf = 0;
+
+    function ketikSurat() {
+      if (indexKalimat < isiSurat.length) {
+        if (indexHuruf < isiSurat[indexKalimat].length) {
+          ketikan.textContent += isiSurat[indexKalimat][indexHuruf];
+          indexHuruf++;
+          setTimeout(ketikSurat, 40); // efek ketik
+        } else {
+          ketikan.textContent += "\n";
+          indexKalimat++;
+          indexHuruf = 0;
+          setTimeout(ketikSurat, 500); // jeda antar kalimat
+        }
+      }
+    }
+
+    ketikSurat();
+  </script>
+</body>
+</html>
